@@ -1,0 +1,23 @@
+{
+    "name": "vite3",
+    "version": "1.0.0beta0.1",
+    "description": "CLI tool for creating Three.js Vite projects with GLSL support",
+    "main": "lib/scaffold.js",
+    "type": "module",
+    "bin": {
+        "vite3": "bin/vite3.js"
+    },
+    "keywords": [
+        "vite",
+        "three.js",
+        "glsl",
+        "vite3"
+    ],
+    "author": "Aayush Chouhan",
+    "license": "MIT",
+    "dependencies": {
+        "ansi-colors": "^4.1.3",
+        "cli-progress": "^3.12.0",
+        "inquirer": "^12.0.0"
+    }
+}
