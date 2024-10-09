@@ -7,14 +7,25 @@
     "bin": {
         "vite3": "bin/vite3.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://bit.ly/vite3-git"
+    },
+    "homepage": "https://bit.ly/vite3-home",
     "keywords": [
         "vite",
         "three.js",
+        "3D",
         "glsl",
+        "typescript",
+        "javascript",
         "vite3"
     ],
-    "author": "Aayush Chouhan",
-    "license": "MIT",
+    "author": {
+        "name": "Aayush Chouhan",
+        "email": "aayushchouhan24@gmail.com"
+    },
+    "license": "ISC",
     "dependencies": {
         "ansi-colors": "^4.1.3",
         "cli-progress": "^3.12.0",
