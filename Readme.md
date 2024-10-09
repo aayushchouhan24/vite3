@@ -1,8 +1,8 @@
-# Vite3 - Vite + ThreeJs App Generator
+# Vite-3 - Vite + ThreeJs App Generator
 
-![Vite3-Logo](https://ik.imagekit.io/technoaayush/Vite3/banner)
+![Vite-3-Logo](https://ik.imagekit.io/technoaayush/Vite-3/banner)
 
-**Vite3** is a project generator for creating Vite-based Three.js applications. It provides boilerplate code for both JavaScript and TypeScript projects, with options for Basic or Shader-based templates. Additionally, Tailwind CSS can be integrated for styling.
+**Vite-3** is a project generator for creating Vite-based Three.js applications. It provides boilerplate code for both JavaScript and TypeScript projects, with options for Basic or Shader-based templates. Additionally, Tailwind CSS can be integrated for styling.
 
 ## ✨ Features
 
@@ -16,10 +16,10 @@
 
 ## 📦 Installation
 
-To install Vite3 globally:
+To install Vite-3 globally:
 
 ```bash
-npm install -g vite3
+npm install -g vite-3
 ```
 
 ## 🛠️ Usage
@@ -27,7 +27,7 @@ npm install -g vite3
 Run the following command to scaffold a new Vite Three.js project:
 
 ```bash
-vite3
+vite-3  OR   vite3
 ```
 
 You will be prompted to provide the following details:
@@ -84,7 +84,7 @@ We welcome contributions! If you have ideas for new features, bug fixes, or impr
 
 ## 📄 License
 
-`Vite3` is licensed under the MIT License. For more information, refer to the [LICENSE](LICENSE) file.
+`Vite-3` is licensed under the MIT License. For more information, refer to the [LICENSE](LICENSE) file.
 
 ## 🙌 Acknowledgements
 
