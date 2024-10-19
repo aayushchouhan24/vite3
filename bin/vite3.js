@@ -295,6 +295,9 @@ const startPrompt = async () => {
     fs.writeFileSync(path.join(projectPath, 'vite.config.js'), viteConfig(tailwind))
     progressBar.increment()
 
+    fs.mkdirSync(path.join(projectPath, 'public'))
+    progressBar.increment()
+
     progressBar.stop()
 
     console.clear()
