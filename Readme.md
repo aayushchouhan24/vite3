@@ -1,6 +1,6 @@
 # Vite-3 - Vite + ThreeJs App Generator
 
-![Vite-3-Logo](https://ik.imagekit.io/technoaayush/Vite-3/banner)
+![Vite-3-Logo](https://ik.imagekit.io/technoaayush/vite-3/banner)
 
 **Vite-3** is a project generator for creating Vite-based Three.js applications. It provides boilerplate code for both JavaScript and TypeScript projects, with options for Basic or Shader-based templates. Additionally, Tailwind CSS can be integrated for styling.
 
