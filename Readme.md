@@ -1,93 +1,157 @@
-# Vite-3 - Vite + ThreeJs App Generator
+# Vite-3
 
-![Vite-3-Logo](https://ik.imagekit.io/technoaayush/vite-3/banner)
+<p align="center">
+  <img src="https://ik.imagekit.io/technoaayush/vite-3/banner" alt="Vite-3 Banner" />
+</p>
 
-**Vite-3** is a project generator for creating Vite-based Three.js applications. It provides boilerplate code for both JavaScript and TypeScript projects, with options for Basic or Shader-based templates. Additionally, Tailwind CSS can be integrated for styling.
+<p align="center">
+  <strong>⚡ Scaffold Vite + Three.js projects in seconds</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/vite-3"><img src="https://img.shields.io/npm/v/vite-3.svg?style=flat-square&color=blue" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/vite-3"><img src="https://img.shields.io/npm/dm/vite-3.svg?style=flat-square&color=green" alt="npm downloads" /></a>
+  <a href="https://github.com/aayushchouhan24/vite-3/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/vite-3.svg?style=flat-square" alt="license" /></a>
+</p>
+
+---
+
+**Vite-3** is a CLI tool that scaffolds production-ready Vite + Three.js projects with zero configuration. Choose your language, pick a template, and start building 3D experiences instantly.
 
 ## ✨ Features
 
-- Supports **JavaScript** and **TypeScript** variants.
-- Provides two project types:
-  - **Basic**: Simple Three.js project with basic geometry and materials.
-  - **Shaders**: Three.js project using custom GLSL shaders.
-- Optional integration with **Tailwind CSS**.
-- Automatically sets up **Vite** for development and bundling.
-- Pre-configured with **Vite GLSL plugin** for shader support.
+| Feature | Description |
+|---------|-------------|
+| 🚀 **Lightning Fast** | Powered by Vite for instant HMR and blazing fast builds |
+| 📦 **Zero Config** | Pre-configured project setup, just run and code |
+| 🎨 **Multiple Templates** | Basic geometry or GLSL shader projects |
+| 📘 **TypeScript Ready** | Full TypeScript support with proper types |
+| 🎨 **Tailwind CSS v4** | Optional modern CSS framework integration |
+| 🔮 **GLSL Support** | Built-in shader support via vite-plugin-glsl |
 
 ## 📦 Installation
 
-To install Vite-3 globally:
-
 ```bash
+# Install globally
 npm install -g vite-3
+
+# Or use directly with npx
+npx vite-3
 ```
 
-## 🛠️ Usage
-
-Run the following command to scaffold a new Vite Three.js project:
+## 🚀 Quick Start
 
 ```bash
-vite-3  OR   vite3
+vite3
 ```
 
-You will be prompted to provide the following details:
-
-1. **Project Name**: The name of your project.
-2. **Project Type**: Choose between `basic` or `shaders`.
-3. **Variant**: Choose between `JavaScript` or `TypeScript`.
-4. **Tailwind CSS**: Option to include Tailwind CSS for styling.
-
-After answering the prompts, the project structure will be created, and all dependencies will be installed.
-
-## 📑 Project Structure
-
-The generated project will have the following structure:
+You'll be prompted to configure your project:
 
 ```
-project-name/
-│
-├── index.html              # Main HTML file
-├── package.json            # Project metadata and scripts
-├── vite.config.js          # Vite configuration file
+? Project name: my-3d-app
+? Select a project type: basic / shaders
+? Select a variant: JavaScript / TypeScript
+? Do you want to include Tailwind CSS? Yes / No
+```
+
+Then start developing:
+
+```bash
+cd my-3d-app
+npm run dev
+```
+
+## 📁 Project Structure
+
+```
+my-3d-app/
+├── public/                 # Static assets
 ├── src/
-│   ├── main.js|ts          # Entry point of the Three.js project
-│   ├── styles.css          # Main styles (includes Tailwind if selected)
-│   └── shaders/            # (For shader projects) GLSL files
-├── tsconfig.json           # (For TypeScript projects) TypeScript configuration
-└── node_modules/           # Project dependencies
+│   ├── main.js|ts          # Three.js entry point
+│   ├── styles.css          # Styles (with Tailwind if selected)
+│   ├── shaders/            # GLSL files (shader template only)
+│   │   ├── vertex.glsl
+│   │   └── fragment.glsl
+│   └── glsl.d.ts           # GLSL type definitions (TypeScript only)
+├── index.html              # HTML entry point
+├── package.json
+├── vite.config.js
+├── tsconfig.json           # TypeScript only
+└── .gitignore
 ```
 
-## 📜 Available Scripts
+## 📜 Scripts
 
-Inside the project directory, you can run:
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
 
-- `npm run dev`: Starts the development server with Vite.
-- `npm run build`: Builds the project for production.
+## 🎯 Templates
 
-For TypeScript projects, the build command will first compile the TypeScript files.
+### Basic
+A simple Three.js scene with:
+- Rotating cube with `MeshNormalMaterial`
+- OrbitControls for camera interaction
+- Responsive canvas with proper pixel ratio handling
 
-## 🌟 Meet the Visionary Behind Shader3
+### Shaders
+A GLSL shader playground with:
+- Custom vertex and fragment shaders
+- Time-based uniforms for animations
+- Wave displacement effect
 
-In the heart of the dynamic world of web development, the creator of Shader is making waves with their unique visions and unwavering determination.
+## 🎨 Tailwind CSS v4
 
-### 🎮 Aayush Chouhan - [@aayushchouhan24](https://github.com/aayushchouhan24)
+When enabled, Tailwind CSS v4 is configured with the new CSS-first approach:
 
-![Aayush Chouhan](https://gravatar.com/userimage/226260988/f5429ad9b09c533449dab984eb05cdbf.jpeg?size=1024)
+```css
+/* src/styles.css */
+@import "tailwindcss";
 
-Aayush Chouhan, a tech lover and gaming enthusiast, embarked on a journey through cyberspace. From freelancing to diving into web and Android development, he honed his skills in programming languages. Joining Sheryians, he embraced Three.js, immersing himself in the captivating realm of 3D graphics, marking an exciting milestone in his career.
+/* Your custom styles */
+```
 
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/aayushchouhan_24/) [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aayushchouhan24/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aayushchouhan24)
+No separate config file needed - Tailwind v4 uses CSS for configuration.
+
+## 🌟 Author
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/aayushchouhan24">
+        <img src="https://gravatar.com/userimage/226260988/f5429ad9b09c533449dab984eb05cdbf.jpeg?size=256" width="100px;" alt="Aayush Chouhan" style="border-radius: 50%;" />
+        <br />
+        <sub><b>Aayush Chouhan</b></sub>
+      </a>
+      <br />
+      <a href="https://www.instagram.com/aayushchouhan_24/" title="Instagram"><img src="https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white" /></a>
+      <a href="https://www.linkedin.com/in/aayushchouhan24/" title="LinkedIn"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" /></a>
+      <a href="https://github.com/aayushchouhan24" title="GitHub"><img src="https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white" /></a>
+    </td>
+  </tr>
+</table>
 
 ## 🤝 Contributing
 
-We welcome contributions! If you have ideas for new features, bug fixes, or improvements, feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/aayushchouhan24/shader3).
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-`Vite-3` is licensed under the MIT License. For more information, refer to the [LICENSE](LICENSE) file.
+MIT © [Aayush Chouhan](https://github.com/aayushchouhan24)
 
-## 🙌 Acknowledgements
+---
 
-- **[Vite](https://vite.dev/):** The Build Tool for the Web.
-
-- **[Three.js](https://threejs.org/):** The core library for 3D rendering.
+<p align="center">
+  Built with ❤️ using
+  <a href="https://vite.dev/">Vite</a> •
+  <a href="https://threejs.org/">Three.js</a> •
+  <a href="https://tailwindcss.com/">Tailwind CSS</a>
+</p>

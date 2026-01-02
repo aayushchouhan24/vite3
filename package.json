@@ -1,8 +1,8 @@
 {
     "name": "vite-3",
-    "version": "1.0.0-beta0.4",
+    "version": "1.0.0",
     "description": "CLI tool for creating Three.js Vite projects with GLSL support",
-    "main": "lib/scaffold.js",
+    "main": "bin/vite3.js",
     "type": "module",
     "bin": {
         "vite3": "bin/vite3.js",
