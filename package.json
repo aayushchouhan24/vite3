@@ -1,6 +1,6 @@
 {
     "name": "vite-3",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "CLI tool for creating Three.js Vite projects with GLSL support",
     "main": "bin/vite3.js",
     "type": "module",

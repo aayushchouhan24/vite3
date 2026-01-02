@@ -97,7 +97,7 @@ const tsConfig = {
     esModuleInterop: true,
     resolveJsonModule: true
   },
-  include: ['src']
+  include: ['src', 'vite.config.ts']
 }
 
 // Tailwind CSS v4 - uses vite plugin, no separate config file needed
@@ -113,7 +113,7 @@ export default defineConfig({
 `
 
 
-const mainJsTemplate = (type) => `import './styles.css'
+const mainTemplate = (type, variant) => `import './styles.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 ${type === 'shaders' ? `import vertexShader from './shaders/vertex.glsl'
@@ -155,7 +155,7 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
 // Resize handler
-const handleResize = () => {
+const handleResize${variant === 'TypeScript' ? ': () => void' : ''} = () => {
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
   renderer.setSize(window.innerWidth, window.innerHeight)
@@ -165,14 +165,14 @@ window.addEventListener('resize', handleResize)
 
 // Animation loop
 const clock = new THREE.Clock()
-const animate = () => {
+const animate${variant === 'TypeScript' ? ': () => void' : ''} = () => {
   requestAnimationFrame(animate)
   
   const elapsedTime = clock.getElapsedTime()
   ${type === 'basic' ? `
   mesh.rotation.x = elapsedTime * 0.5
   mesh.rotation.y = elapsedTime * 0.3` : `
-  material.uniforms.uTime.value = elapsedTime`}
+  ;(material as THREE.ShaderMaterial).uniforms.uTime.value = elapsedTime`}
   
   controls.update()
   renderer.render(scene, camera)
@@ -244,7 +244,7 @@ process.on('SIGINT', () => {
 })
 
 const runCommand = (projectPath, command) => {
-  execSync(`cd "${projectPath}" && ${command}`, { stdio: 'ignore' })
+  execSync(command, { cwd: projectPath, stdio: 'ignore', shell: true })
 }
 
 const executeCommands = (projectPath, commands, progressBar) => {
@@ -306,7 +306,7 @@ const startPrompt = async () => {
     fs.mkdirSync(srcPath)
     progressBar.increment()
     
-    fs.writeFileSync(path.join(srcPath, `main.${getExtension(variant)}`), mainJsTemplate(projectType))
+    fs.writeFileSync(path.join(srcPath, `main.${getExtension(variant)}`), mainTemplate(projectType, variant))
     progressBar.increment()
     
     fs.writeFileSync(path.join(srcPath, 'styles.css'), stylesCssTemplate(tailwind))
@@ -350,8 +350,9 @@ const startPrompt = async () => {
       progressBar.increment()
     }
 
-    // Create vite.config.js
-    fs.writeFileSync(path.join(projectPath, 'vite.config.js'), viteConfig(tailwind))
+    // Create vite.config.js or vite.config.ts
+    const viteConfigExt = variant === 'TypeScript' ? 'ts' : 'js'
+    fs.writeFileSync(path.join(projectPath, `vite.config.${viteConfigExt}`), viteConfig(tailwind))
     progressBar.increment()
 
     // Create public folder and .gitignore
